@@ -1,5 +1,7 @@
 package com.starterkit.javafx.controller;
 
+import static org.junit.Assert.fail;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -27,7 +29,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -163,28 +164,29 @@ public class UserSearchController {
 	}
 
 	@FXML
-	private Stage editButtonAction(ActionEvent event) throws IOException {
+	private Stage editButtonAction(ActionEvent event) {
 		LOG.debug("'Edit Profile' button clicked");
 
 		Stage primaryStage = new Stage(StageStyle.DECORATED);
+		try {
+			primaryStage.setTitle("User Profile");
 
-		primaryStage.setTitle("User Profile");
+			FXMLLoader root = new FXMLLoader(getClass().getResource("/com/starterkit/javafx/view/user-edit.fxml"),
+					ResourceBundle.getBundle("com/starterkit/javafx/bundle/base"));
 
-		FXMLLoader root = new FXMLLoader(getClass().getResource("/com/starterkit/javafx/view/user-edit.fxml"),
-				ResourceBundle.getBundle("com/starterkit/javafx/bundle/base"));
+			Parent loader = root.load();
 
-		Parent loader = root.load();
+			UserEditController user = root.<UserEditController> getController();
+			user.getData(resultTable.getSelectionModel().getSelectedItem());
+			Scene scene = new Scene(loader);
 
-		UserEditController user = root.<UserEditController> getController();
-		user.getData(resultTable.getSelectionModel().getSelectedItem());
-		Scene scene = new Scene(loader);
+			primaryStage.setScene(scene);
 
-		primaryStage.setScene(scene);
+			primaryStage.show();
 
-		primaryStage.initModality(Modality.APPLICATION_MODAL);
-
-		primaryStage.show();
-
+		} catch (Exception e) {
+			fail("No selected row");
+		}
 		return primaryStage;
 	}
 }

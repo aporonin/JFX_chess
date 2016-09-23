@@ -20,11 +20,11 @@ public class UserSearch {
 	private final ListProperty<UserProfileTO> result = new SimpleListProperty<>(
 			FXCollections.observableList(new ArrayList<>()));
 
-	public final String getLogin() {
+	public String getLogin() {
 		return login.get();
 	}
 
-	public final void setLogin(String value) {
+	public void setLogin(String value) {
 		login.set(value);
 	}
 
@@ -32,11 +32,11 @@ public class UserSearch {
 		return login;
 	}
 
-	public final String getName() {
+	public String getName() {
 		return name.get();
 	}
 
-	public final void setName(String value) {
+	public void setName(String value) {
 		name.set(value);
 	}
 
@@ -44,11 +44,11 @@ public class UserSearch {
 		return name;
 	}
 
-	public final String getSurname() {
+	public String getSurname() {
 		return surname.get();
 	}
 
-	public final void setSurname(String value) {
+	public void setSurname(String value) {
 		surname.set(value);
 	}
 
@@ -56,11 +56,11 @@ public class UserSearch {
 		return surname;
 	}
 
-	public final String getEmail() {
+	public String getEmail() {
 		return email.get();
 	}
 
-	public final void setEmail(String value) {
+	public void setEmail(String value) {
 		email.set(value);
 	}
 
@@ -68,11 +68,11 @@ public class UserSearch {
 		return email;
 	}
 
-	public final List<UserProfileTO> getResult() {
+	public List<UserProfileTO> getResult() {
 		return result.get();
 	}
 
-	public final void setResult(List<UserProfileTO> value) {
+	public void setResult(List<UserProfileTO> value) {
 		result.setAll(value);
 	}
 
