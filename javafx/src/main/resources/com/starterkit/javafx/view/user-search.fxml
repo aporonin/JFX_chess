@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?scenebuilder-preview-i18n-resource ../bundle/base.properties?>
+<?scenebuilder-stylesheet ../css/standard.css?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane prefHeight="521.0" prefWidth="884.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.starterkit.javafx.controller.UserSearchController">
+  <GridPane hgap="10.0" layoutX="52.0" layoutY="40.0" prefHeight="134.0" prefWidth="397.0" vgap="10.0" AnchorPane.leftAnchor="52.0">
+    <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="88.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="260.0" />
+    </columnConstraints>
+    <rowConstraints>
+      <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+    <children>
+     <Label text="%label.userLogin" GridPane.rowIndex="1" />
+      <TextField fx:id="loginField" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Label text="%label.firstName" GridPane.rowIndex="2" />
+      <TextField fx:id="nameField" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <Label text="%label.lastName" GridPane.rowIndex="3" />
+     <TextField fx:id="surnameField" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+    </children>
+  </GridPane>
+  <TableView fx:id="resultTable" layoutX="52.0" layoutY="217.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="180.0" prefWidth="780.0" AnchorPane.leftAnchor="52.0">
+    <placeholder>
+      <Label text="%table.emptyText" />
+    </placeholder>
+    <columns>
+      <TableColumn fx:id="loginColumn" minWidth="140.0" prefWidth="140.0" text="%column.login" />
+      <TableColumn fx:id="nameColumn" minWidth="170.0" prefWidth="170" text="%column.name" />
+      <TableColumn fx:id="surnameColumn" minWidth="170.0" prefWidth="170.0" text="%column.surname" />
+      <TableColumn fx:id="emailColumn" minWidth="170.0" prefWidth="300.0" text="%column.email" />
+    </columns>
+  </TableView>
+<Button fx:id="searchButton" defaultButton="true" layoutX="466.0" layoutY="53.0" mnemonicParsing="false" onAction="#searchButtonAction" text="%button.search" />
+   <Button fx:id="deleteButton" defaultButton="true" layoutX="524.0" layoutY="451.0" mnemonicParsing="false" onAction="#deleteButtonAction" prefHeight="30.0" prefWidth="130.0" text="%button.delete" />
+   <Button fx:id="editButton" defaultButton="true" layoutX="698.0" layoutY="451.0" mnemonicParsing="false" onAction="#editButtonAction" prefHeight="30.0" prefWidth="130.0" text="%button.edit" />
+</AnchorPane>
