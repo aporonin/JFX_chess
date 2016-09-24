@@ -44,6 +44,7 @@
       <TableColumn fx:id="emailColumn" minWidth="170.0" prefWidth="300.0" text="%column.email" />
     </columns>
   </TableView>
+  <!-- REV: tylko jeden przycisk powinien byc default -->
 <Button fx:id="searchButton" defaultButton="true" layoutX="466.0" layoutY="53.0" mnemonicParsing="false" onAction="#searchButtonAction" text="%button.search" />
    <Button fx:id="deleteButton" defaultButton="true" layoutX="524.0" layoutY="451.0" mnemonicParsing="false" onAction="#deleteButtonAction" prefHeight="30.0" prefWidth="130.0" text="%button.delete" />
    <Button fx:id="editButton" defaultButton="true" layoutX="698.0" layoutY="451.0" mnemonicParsing="false" onAction="#editButtonAction" prefHeight="30.0" prefWidth="130.0" text="%button.edit" />

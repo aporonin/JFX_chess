@@ -24,6 +24,7 @@ public class DataProviderImpl implements DataProvider {
 
 	private static final String AUTHENTICATION_USERNAME = "franek";
 	private static final String AUTHENTICATION_PASSWORD = "pass";
+	// REV: adres serwera z konfiguracji
 	private static final String SEARCH_PATH = "http://localhost:8090/user/search";
 	private static final String ROOT_PATH = "http://localhost:8090/user";
 	private static final Logger LOG = Logger.getLogger(DataProviderImpl.class);
@@ -34,6 +35,7 @@ public class DataProviderImpl implements DataProvider {
 			throws JsonParseException, JsonMappingException, IOException {
 		LOG.debug("Entering findUsers()");
 		Collection<UserProfileTO> listUsers = new ArrayList<UserProfileTO>();
+		// REV: ten obiekt powinien byc utworzony tylko raz i zapisany jako atrybut klasy 
 		Client client = Client.create();
 		client.addFilter(new HTTPBasicAuthFilter(AUTHENTICATION_USERNAME, AUTHENTICATION_PASSWORD));
 		MultivaluedHashMap<String, String> params = new MultivaluedHashMap<>();
@@ -43,6 +45,7 @@ public class DataProviderImpl implements DataProvider {
 		WebResource webResource = client.resource(SEARCH_PATH).queryParams(params);
 		ClientResponse response = webResource.accept("application/json").get(ClientResponse.class);
 		String output = response.getEntity(String.class);
+		// REV: nie ma potrzeby robić mapowania samemu - response.getEntity(new GenericType<Collection<UserProfileTO>>)
 		listUsers = Arrays.asList(objectMapper.readValue(output, UserProfileTO[].class));
 		return listUsers;
 	}
@@ -50,6 +53,7 @@ public class DataProviderImpl implements DataProvider {
 	@Override
 	public void deleteUser(Long id) throws JsonParseException, JsonMappingException, IOException {
 		LOG.debug("Entering deleteUser()");
+		// REV: j.w.
 		Client client = Client.create();
 		WebResource webResource = client.resource(ROOT_PATH + id);
 		webResource.delete(ClientResponse.class);
@@ -59,6 +63,7 @@ public class DataProviderImpl implements DataProvider {
 	public UserProfileTO updateUser(UserProfileTO selectedUser)
 			throws JsonParseException, JsonMappingException, IOException {
 		LOG.debug("Entering updateUser()");
+		// REV: j.w.
 		Client client = Client.create();
 		WebResource webResource = client.resource(ROOT_PATH);
 		ClientResponse response = webResource.type(MediaType.APPLICATION_JSON).put(ClientResponse.class, selectedUser);

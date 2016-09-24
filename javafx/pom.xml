@@ -23,11 +23,13 @@
 			<artifactId>jersey-client</artifactId>
 			<version>1.19.2</version>
 		</dependency> 
+		<!-- REV: ta zelznosc nie jest potrzebna -->
 		<dependency>
         <groupId>com.fasterxml.jackson.jaxrs</groupId>
         <artifactId>jackson-jaxrs-json-provider</artifactId>
         <version>2.3.0</version>
     </dependency>
+    <!-- REV: ta zelznosc nie jest potrzebna -->
     <dependency>
         <groupId>org.glassfish.jersey.ext</groupId>
         <artifactId>jersey-spring3</artifactId>

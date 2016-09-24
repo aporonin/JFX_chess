@@ -135,6 +135,7 @@ public class UserSearchController {
 				resultTable.getSortOrder().clear();
 			}
 		};
+		// REV: brak obslugi bledow
 		new Thread(backgroundTask).start();
 	}
 
@@ -159,6 +160,7 @@ public class UserSearchController {
 				resultTable.getSortOrder().clear();
 			}
 		};
+		// REV: brak obslugi bledow
 
 		new Thread(backgroundTask).start();
 	}
@@ -171,6 +173,7 @@ public class UserSearchController {
 		try {
 			primaryStage.setTitle("User Profile");
 
+			// REV: moznaby utworzyc okno w konstruktorze
 			FXMLLoader root = new FXMLLoader(getClass().getResource("/com/starterkit/javafx/view/user-edit.fxml"),
 					ResourceBundle.getBundle("com/starterkit/javafx/bundle/base"));
 
@@ -182,9 +185,11 @@ public class UserSearchController {
 
 			primaryStage.setScene(scene);
 
+			// REV: okno powinno byc modalne
 			primaryStage.show();
 
 		} catch (Exception e) {
+			// REV: o co tu chodzi?
 			fail("No selected row");
 		}
 		return primaryStage;

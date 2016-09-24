@@ -125,6 +125,7 @@ public class UserEditController {
 		new Thread(backgroundTask).start();
 	}
 
+	// REV: bardziej by pasowalo setData
 	public void getData(UserProfileTO userProfile) {
 		model.setLogin(userProfile.getLogin());
 		model.setName(userProfile.getName());
